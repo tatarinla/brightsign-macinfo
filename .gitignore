@@ -3,3 +3,7 @@
 /dist*
 *.egg*
 *build*
+macinfo/lib
+macinfo/bin
+macinfo/include
+*cache*
