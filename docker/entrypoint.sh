@@ -1,5 +1,5 @@
 #!/bin/bash
-mac=${1}
+mac=${mac}
 
 cd ../../
 chmod 755 lookup.sh
