@@ -34,7 +34,7 @@ All commands should be run from the root directory.
 ```python3 -m venv macinfo-venv```
 
 
-```source macinfo/bin/activate```
+```source macinfo-venv/bin/activate```
 
 
 2. Install required packages:
