@@ -4,7 +4,7 @@
 **macinfo** - a library to get a company name by mac-address(and probably more).
 
 
- 
+<b>Please, add your api key to environment variables or hardcode it in api_client.py</b>
 
 ### Requirements
 
@@ -98,17 +98,4 @@ All tests should be run from the root directory.
 
 ```pytest -m tests/<suite_name>```
 
-
-E.g. for running tests for num2str():
-
-
-```pytest -m tests/test_get_vendor.py```
-
-These tests use <b>inflect</b> library to validate results.
-
-
-E.g. for running tests for EN_Converter class methods:
-
-
-```pytest -m tests/test_en_converter.py```
 
