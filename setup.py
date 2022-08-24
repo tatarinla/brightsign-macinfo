@@ -8,6 +8,6 @@ setup(
     author='Kamil Bagautdinov',
     install_requires=['setuptools', 'wheel', 'twine'],
     setup_requires=['pytest-runner'],
-    tests_require=['pytest==7.1.2'],
+    tests_require=['pytest==7.1.2', 'requests==1.26.12'],
     test_suite='tests',
 )

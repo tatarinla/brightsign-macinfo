@@ -2,8 +2,9 @@
 
 import json
 import os
-import requests
+import sys
 import re
+import requests
 from urllib.parse import urlencode
 
 from macinfo.exceptions import APIClientError
@@ -18,8 +19,10 @@ def validate_mac_address(func):
         try:
             if re.match("[0-9a-f]{2}([-:])[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$", mac.lower()):
                 return func(self, mac, *args, **kwargs)
-        except:
-            return 'Nothing found. Please double-check the mac-address.'
+            else:
+                raise APIClientError("Invalid input - please double-check the mac-address.")
+        except APIClientError as e:
+            return e.message
     return wrapper
 
 
@@ -43,13 +46,16 @@ class APIClient:
         data = self.__call(url, method='GET')
         
         return data
-
+    
+    @validate_mac_address
     def get_vendor(self, mac):
         try:
             mac_info = self.get_full_info(mac)
             return mac_info['vendorDetails']['companyName']
+        except APIClientError as e:
+            return str(e)
         except (KeyError, TypeError):
-            return 'Cannot find vendor details by the mac-address provided.'
+            return 'Cannot find vendor details for the mac-address provided.'
 
     def __call(self, url, method='GET', data=None):
         try:
