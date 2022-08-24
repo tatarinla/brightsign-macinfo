@@ -24,3 +24,4 @@ def get_vendor(mac_address):
 if __name__ == "__main__":
     args = _set_cli_options()
     sys.stdout.write(_proceed_request(args))
+
