@@ -6,7 +6,7 @@ import requests
 import re
 from urllib.parse import urlencode
 
-from exceptions import APIClientError
+from macinfo.exceptions import APIClientError
 
 # Please hardcode your api code here or add it to environment variables
 API_KEY = os.environ.get('MACADDRESS_API_KEY')
